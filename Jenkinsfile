@@ -7,7 +7,7 @@ pipeline {
     }
 
     parameters {
-        string(name: 'git_repo_source', defaultValue: 'https://github.com/vishal-choudhari/spring-boot-k8s-azuredevops.git', description: 'Git repository from where we are going to checkout the code (master branch) and build a docker image. NB! The repository must contain a Dockerfile in the root')
+        string(name: 'git_repo_source', defaultValue: 'https://github.com/abbramhankar/NewTestPipeline.git', description: 'Git repository from where we are going to checkout the code (master branch) and build a docker image. NB! The repository must contain a Dockerfile in the root')
         string(name: 'git_repo_branch', defaultValue: 'main', description: 'The branch to be checked out')
         string(name: 'docker_registry_url', defaultValue: '', description: 'Container Registry URL')
         string(name: 'git_credential_Id', defaultValue: 'github-cred-vishal-choudhari')
