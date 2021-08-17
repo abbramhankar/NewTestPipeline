@@ -3,7 +3,7 @@ pipeline {
     
     tools {
         maven 'MAVEN_HOME'
-        jdk 'JAVA_PATH'
+        jdk 'JAVA_HOME'
     }
 
     parameters {
