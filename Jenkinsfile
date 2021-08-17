@@ -2,8 +2,8 @@ pipeline {
     agent any
     
     tools {
-        maven 'MAVEN_LOCAL'
-        jdk 'JAVA_11'
+        maven 'MAVEN_HOME'
+        jdk 'JAVA_PATH'
     }
 
     parameters {
