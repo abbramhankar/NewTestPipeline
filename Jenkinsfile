@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Sonar Analysis') {
             steps {
-                   bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=8aaa2cb5bc634641e0a3a0f3a8635f80855c92c7'
+                   bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=26bb0ecc6b5da119484d7393463dab7f73ffd60c'
             }
         }
     }
