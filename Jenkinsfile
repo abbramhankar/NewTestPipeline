@@ -31,8 +31,13 @@ pipeline {
         }
         stage('Sonar Analysis') {
             steps {
-                   withSonarQubeEnv(credentialsId: 'f225455e-ea59-40fa-8af7-08176e86507a', installationName: 'My SonarQube Server')
-                   sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+                   script {
+          // requires SonarQube Scanner 2.8+
+          SonarScanner = tool 'SonarQube Scanner 2.8'
+        }
+        withSonarQubeEnv('SonarQube Scanner') {
+          sh "${SonarScanner}/bin/sonar-scanner"
+        }
             }
         }
     }
