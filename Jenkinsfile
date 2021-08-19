@@ -29,5 +29,10 @@ pipeline {
                    bat 'mvn clean install'
             }
         }
+        stage('Sonar Analysis') {
+            steps {
+                   bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=61789d2a38167442f831da3311ea4b438004a696'
+            }
+        }
     }
 }
