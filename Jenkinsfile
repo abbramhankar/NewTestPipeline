@@ -3,7 +3,7 @@ pipeline {
     
     tools {
         maven 'MAVEN_HOME'
-        jdk 'JAVA_HOME'
+       // jdk 'JAVA_HOME'
     }
 
     parameters {
@@ -31,13 +31,10 @@ pipeline {
         }
         stage('Sonar Analysis') {
             steps {
-                   script {
-          // requires SonarQube Scanner 2.8+
-          sonarScanner = tool 'SonarQube Scanner 2.8'
-        }
-        withSonarQubeEnv('SonarQube Scanner') {
-          sh "${sonarScanner}/bin/sonar-scanner"
-        }
+        withSonarQubeEnv(credentialsId: 'SonarToken', installationName: 'SonarLocal') { // You can override the credential to be used
+      bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+    }
+
             }
         }
     }
