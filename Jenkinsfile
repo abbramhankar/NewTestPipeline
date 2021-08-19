@@ -31,7 +31,8 @@ pipeline {
         }
         stage('Sonar Analysis') {
             steps {
-                   bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=26bb0ecc6b5da119484d7393463dab7f73ffd60c'
+                   withSonarQubeEnv(credentialsId: 'f225455e-ea59-40fa-8af7-08176e86507a', installationName: 'My SonarQube Server')
+                   sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
             }
         }
     }
